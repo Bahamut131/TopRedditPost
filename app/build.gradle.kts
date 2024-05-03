@@ -1,6 +1,10 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+
+    id("com.google.devtools.ksp") version "1.9.21-1.0.15"
+    id("org.jetbrains.kotlin.kapt")
+
 }
 
 android {
@@ -36,6 +40,20 @@ android {
 }
 
 dependencies {
+    //Dagger
+    implementation( "com.google.dagger:dagger:2.51")
+    kapt ("com.google.dagger:dagger-compiler:2.51")
+
+    //Retrofit
+    implementation (libs.retrofit)
+    implementation ("com.squareup.retrofit2:converter-gson:2.11.0")
+
+    val lifecycle_version = "2.7.0"
+    // LiveData
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
