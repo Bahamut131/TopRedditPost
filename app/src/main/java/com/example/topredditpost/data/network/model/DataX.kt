@@ -1,24 +1,31 @@
 package com.example.topredditpost.data.network.model
 
+import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 data class DataX(
     @SerializedName("subreddit")
-    val subreddit: String? = null,
-    @SerializedName("title")
-    val title: String? = null,
+    @Expose
+    val subreddit: String,
     @SerializedName("thumbnail_height")
+    @Expose
     val thumbnailHeight: Int? = null,
     @SerializedName("thumbnail_width")
+    @Expose
     val thumbnailWidth: Int? = null,
     @SerializedName("thumbnail")
+    @Expose
     val thumbnail: String? = null,
     @SerializedName("id")
-    val id: String? = null,
+    @Expose
+    val id: String,
     @SerializedName("num_comments")
-    val numComments: Int? = null,
+    @Expose
+    val numComments: Int,
     @SerializedName("url")
+    @Expose
     val url: String? = null,
     @SerializedName("created_utc")
-    val createdUtc: Int? = null,
+    @Expose
+    val createdUtc: Int,
 )
