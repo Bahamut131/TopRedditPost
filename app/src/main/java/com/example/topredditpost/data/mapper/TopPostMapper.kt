@@ -2,18 +2,28 @@ package com.example.topredditpost.data.mapper
 
 import com.example.topredditpost.data.network.model.Data
 import com.example.topredditpost.data.network.model.DataX
+import com.example.topredditpost.data.network.model.JsonTopPost
 import com.example.topredditpost.domain.entity.Post
+import javax.inject.Inject
 
-class TopPostMapper {
+class TopPostMapper @Inject constructor() {
 
-    fun mapDtoToDbModel(dto: DataX) = Post(
-        id = dto.id,
+    fun mapDtoToEntity(dto: DataX) = Post(
+        id = dto.authorFullname,
         author = dto.subreddit,
         time = convertUtcToTimeString(dto.createdUtc.toLong()),
         numComment = dto.numComments.toString(),
-        img = BASE_IMG_URL + dto.thumbnail
+        img = dto.thumbnail
     )
 
+
+    fun takeDataXFromJson(jsonTopPost: JsonTopPost) : List<DataX>{
+        var resultData = mutableListOf<DataX>()
+        val data = jsonTopPost.data ?: return resultData
+        val children = data.children
+        children?.map { resultData.add(it.data) }
+        return resultData.toList()
+    }
 
     fun convertUtcToTimeString(utcTimestamp: Long): String {
         val currentMillis = System.currentTimeMillis()
@@ -32,8 +42,5 @@ class TopPostMapper {
         }
     }
 
-    companion object{
-        const val BASE_IMG_URL = "https://b.thumbs.redditmedia.com/"
-    }
 
 }

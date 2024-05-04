@@ -8,12 +8,14 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.topredditpost.R
+import com.example.topredditpost.TopPostApp
 import com.example.topredditpost.data.network.ApiFactory
 import com.example.topredditpost.data.network.ApiService
 import com.example.topredditpost.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,20 +23,18 @@ class MainActivity : AppCompatActivity() {
     private val binding : ActivityMainBinding
         get() = _binding ?: throw RuntimeException("ActivityMainBinding == null")
 
-    private val scope = CoroutineScope(Dispatchers.IO)
+    private val component by lazy {
+        (application as TopPostApp).component
+    }
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        component.inject(this)
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         enableEdgeToEdge()
         setContentView(binding.root)
-        val response = ApiFactory.apiService
-        scope.launch {
-            val result = response.getListOfTopPost()
-            Log.d("MyTag","$result")
-        }
-
-
     }
 
     override fun onDestroy() {

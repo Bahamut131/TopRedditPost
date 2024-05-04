@@ -4,11 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.fragment.TopPostFragment"
-    android:background="@color/dark_theme"
-    android:backgroundTint="@color/dark_theme"
+    android:background="@color/dark"
     >
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_top_post"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/post_item"

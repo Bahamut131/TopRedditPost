@@ -6,5 +6,5 @@ import com.google.gson.annotations.SerializedName
 data class Children(
     @SerializedName("data")
     @Expose
-    val data: DataX? =null
+    val data: DataX
 )

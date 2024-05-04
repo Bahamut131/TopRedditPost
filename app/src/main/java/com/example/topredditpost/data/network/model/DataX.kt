@@ -4,6 +4,10 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 data class DataX(
+
+    @SerializedName("author_fullname")
+    @Expose
+    val authorFullname: String,
     @SerializedName("subreddit")
     @Expose
     val subreddit: String,
