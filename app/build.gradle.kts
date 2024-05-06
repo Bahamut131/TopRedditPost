@@ -5,6 +5,8 @@ plugins {
     id("com.google.devtools.ksp") version "1.9.21-1.0.15"
     id("org.jetbrains.kotlin.kapt")
 
+    id ("androidx.navigation.safeargs")
+
 }
 
 android {

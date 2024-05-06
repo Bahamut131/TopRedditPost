@@ -7,6 +7,6 @@ interface TopPostRepository {
 
     fun getListOfTopPost() : Flow<List<Post>>
 
-    suspend fun downloadImage()
+    suspend fun downloadImage(url : String)
 
 }

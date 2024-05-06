@@ -4,7 +4,8 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 data class DataX(
-
+    @SerializedName("url_overridden_by_dest")
+    val urlOverriddenByDest: String? = null,
     @SerializedName("author_fullname")
     @Expose
     val authorFullname: String,

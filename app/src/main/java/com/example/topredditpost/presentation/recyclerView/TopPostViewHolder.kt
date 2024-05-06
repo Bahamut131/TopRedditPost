@@ -8,4 +8,5 @@ class TopPostViewHolder(binding: PostItemBinding) : RecyclerView.ViewHolder(bind
     val numComment = binding.numComments
     val imagePost = binding.imagePost
     val publicTime = binding.publicTime
+    val imageMenu = binding.imageMenu
 }

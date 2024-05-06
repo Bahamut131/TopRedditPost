@@ -5,7 +5,8 @@ data class Post (
     val author : String,
     val img : String ?= null,
     val numComment : String,
-    val time : String
+    val time : String,
+    val fullImage : String ?=null
 ){
     companion object{
         const val ID = "0"
