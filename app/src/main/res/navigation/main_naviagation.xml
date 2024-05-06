@@ -9,5 +9,19 @@
         android:id="@+id/topPostFragment"
         android:name="com.example.topredditpost.presentation.fragment.TopPostFragment"
         android:label="fragment_top_post"
-        tools:layout="@layout/fragment_top_post" />
+        tools:layout="@layout/fragment_top_post" >
+        <action
+            android:id="@+id/action_topPostFragment_to_showImageFragment"
+            app:destination="@id/showImageFragment"
+            app:launchSingleTop="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/showImageFragment"
+        android:name="com.example.topredditpost.presentation.fragment.ShowImageFragment"
+        android:label="fragment_show_image"
+        tools:layout="@layout/fragment_show_image" >
+        <argument
+            android:name="image"
+            app:argType="string" />
+    </fragment>
 </navigation>

@@ -13,7 +13,8 @@ class TopPostMapper @Inject constructor() {
         author = dto.subreddit,
         time = convertUtcToTimeString(dto.createdUtc.toLong()),
         numComment = dto.numComments.toString(),
-        img = dto.thumbnail
+        img = dto.thumbnail,
+        fullImage = dto.urlOverriddenByDest
     )
 
 
