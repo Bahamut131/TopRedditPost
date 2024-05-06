@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TopRedditPost</string>
+    <string name="download_image">Download Image</string>
 </resources>
